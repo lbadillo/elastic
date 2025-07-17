@@ -12,7 +12,12 @@ to fix:
 
 
 ## How to run 
-* run ``docker-compose up``
+* view utils/docker-compose.yml
+* run ``utils/docker-compose up``
+
+## How to test
+* Import a collection ``utils/ElasticCarModel.postman_collection.json``
+
 
 ## URL's
 * Elasticsearch: ``localhost:9200``
