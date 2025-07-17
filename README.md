@@ -13,7 +13,7 @@ to fix:
 
 ## How to run 
 * view utils/docker-compose.yml
-* run ``utils/docker-compose up``
+* run ``utils/docker-compose up -d``
 
 ## How to test
 * Import a collection ``utils/ElasticCarModel.postman_collection.json``
