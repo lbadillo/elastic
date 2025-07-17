@@ -1,11 +1,9 @@
 package com.elasticsample.app.controller;
 
-import com.elasticsample.app.model.CarModel;
-import com.elasticsample.app.repository.CarRepository;
+import com.elasticsample.app.domain.CarDTO;
+import com.elasticsample.app.service.ICarService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -20,35 +18,36 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 @RequestMapping("/car")
 public class CarController {
-    private final CarRepository carRepository;
+
+    private final ICarService service;
 
     @PostMapping
-    public void save(@RequestBody CarModel carModel) {
-        carRepository.save(carModel);
+    public CarDTO save(@RequestBody CarDTO carDTO) {
+        return service.saveCar(carDTO);
 
     }
 
     @GetMapping("/{id}")
-    public CarModel findById(@PathVariable String id) {
-        return carRepository.findById(id).orElse(null);
-
+    public CarDTO findById(@PathVariable String id) {
+        return service.getCarById(id);
     }
 
     @GetMapping
-    public Page<CarModel> findAll(@RequestParam int pageNo, @RequestParam int size) {
-        return carRepository.findAll(PageRequest.of(pageNo, size));
+    public Page<CarDTO> findAll(@RequestParam int pageNo, @RequestParam int size) {
+        return service.getAllCars(pageNo, size);
+
 
     }
 
     @DeleteMapping("/{id}")
     public void delete(@PathVariable String id) {
-        carRepository.deleteById(id);
+        service.deleteCar(id);
 
     }
 
     @PutMapping
-    public void update(@RequestBody CarModel carModel) {
-        carRepository.save(carModel);
+    public CarDTO update(@RequestBody CarDTO car) {
+        return service.saveCar(car);
 
     }
 }
