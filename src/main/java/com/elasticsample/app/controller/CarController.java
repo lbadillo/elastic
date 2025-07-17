@@ -4,6 +4,8 @@ import com.elasticsample.app.domain.CarDTO;
 import com.elasticsample.app.service.ICarService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.web.PagedModel;
+import org.springframework.data.web.PagedResourcesAssembler;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -33,7 +35,9 @@ public class CarController {
     }
 
     @GetMapping
-    public Page<CarDTO> findAll(@RequestParam int pageNo, @RequestParam int size) {
+    public Page<CarDTO> findAll(@RequestParam int pageNo,
+                                      @RequestParam int size
+                                      ) {
         return service.getAllCars(pageNo, size);
 
 
