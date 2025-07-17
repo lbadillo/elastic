@@ -1,0 +1,93 @@
+{
+	"info": {
+		"_postman_id": "2e1ec86c-38de-4db8-a68d-34bb4147a9ca",
+		"name": "ElasticCarModel",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "349862"
+	},
+	"item": [
+		{
+			"name": "saveCard",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \n    \"model\": \"ygadsgs\",\n    \"year\": 2039,\n    \"brand\": \"dfg\",\n    \n    \"owners\": [\n        {\n            \"name\": \"pedroww\",\n            \"age\": 24,\n            \"isActive\": true\n        },\n        {\n            \"name\": \"Antonioww\",\n            \"age\": 2,\n            \"isActive\": false\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/car",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"car"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getAllCar",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/car?pageNo=0&size=30",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"car"
+					],
+					"query": [
+						{
+							"key": "pageNo",
+							"value": "0"
+						},
+						{
+							"key": "size",
+							"value": "30"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "getCarById",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/car/pznkD5gBz6GTCEuAU_11",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"car",
+						"pznkD5gBz6GTCEuAU_11"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
